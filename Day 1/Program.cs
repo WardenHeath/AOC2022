@@ -22,6 +22,7 @@
             elvesTotal.Remove(elvesTotal.Max());
             sum += elvesTotal.Max();
             
+            
             Console.WriteLine(String.Format("Highest Value: {0} \nSum of Top 3: {1}", elvesTotal.Max(),sum));
             Console.ReadLine();
         }
