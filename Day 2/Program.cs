@@ -53,8 +53,7 @@
                     }
                     switch(lines[i].Split(" ")[0]){
                         case "A": //rock = 1
-                            elf = 2;
-                            //Console.WriteLine(string.Format("Case A, Points2: {0}",POINTSTOTALPERLINEPART2[i]));
+                            elf = 2;                          
                             switch(POINTSTOTALPERLINEPART2[i]){
                                 case 0: //loss = scissors
                                     POINTSTOTALPERLINEPART2[i] += 3;
@@ -62,7 +61,7 @@
                                 case 3: // draw = rock
                                     POINTSTOTALPERLINEPART2[i] += 1;
                                     break;
-                                case 6: // win = papar
+                                case 6: // win = paper
                                     POINTSTOTALPERLINEPART2[i] += 2;
                                     break;
                             }
@@ -85,13 +84,13 @@
                             elf = 1;
                             switch(POINTSTOTALPERLINEPART2[i]){
                                 case 0: //loss = rock
-                                    POINTSTOTALPERLINEPART2[i] += 1;
+                                    POINTSTOTALPERLINEPART2[i] += 2;
                                     break;
                                 case 3: // draw = scissors
                                     POINTSTOTALPERLINEPART2[i] += 3;
                                     break;
                                 case 6: // win = paper
-                                    POINTSTOTALPERLINEPART2[i] += 2;
+                                    POINTSTOTALPERLINEPART2[i] += 1;
                                     break;
                             }
                             break;
@@ -102,6 +101,7 @@
                     }else{
                         POINTSTOTALPERLINE[i] += 3;
                     } 
+                    //Console.WriteLine(string.Format("Input: {0}, Result 1: {1}, Result 2: {2}", lines[i],POINTSTOTALPERLINE[i],POINTSTOTALPERLINEPART2[i]));
             }
 
             Total = POINTSTOTALPERLINE.Sum();
