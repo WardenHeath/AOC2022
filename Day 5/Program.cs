@@ -1,4 +1,5 @@
-﻿namespace Day1
+﻿using System.Text.RegularExpressions;
+namespace Day1
 {
     class Program
     {
@@ -22,7 +23,7 @@
             
 
             string[] part1lines = parts[0].Split("\r\n");
-
+            string[] part2lines = parts[1].Split("\r\n");
             foreach(var item in part1lines){
                 if(item[1] == '1') break;
                 if(item[1] != space) Cols[0].Add(item[1]);
@@ -48,7 +49,13 @@
             Console.WriteLine("7:  " + string.Join(", ", Cols[6]));
             Console.WriteLine("8:  " + string.Join(", ", Cols[7]));
             Console.WriteLine("9:  " + string.Join(", ", Cols[8]));
-
+            
+            foreach(var item in part2lines){
+                int amount = int.Parse(Regex.Match(item.Split("from")[0], @"\d+").Value);
+                int source = int.Parse(Regex.Match(item.Split("from")[1].Split("to")[0], @"\d+").Value);
+                int dest = int.Parse(Regex.Match(item.Split("from")[1].Split("to")[1], @"\d+").Value);
+                Console.WriteLine("move {0} from {1} to {2}",amount,source,dest);
+            }
 
         }
     }
